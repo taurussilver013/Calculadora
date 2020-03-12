@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int Op;
+float Aux, Sec;
 //Variáveis Globais
 
 int Soma();
@@ -47,7 +48,10 @@ int main() { //Função Principal
             break;
 
         case 5:
-            printf("Programa é encerrado...\n");
+            system("clear");
+            printf("#################\n");
+            printf(" Fim da execução\n");
+            printf("#################\n\n");
 
             break;
 
@@ -55,19 +59,61 @@ int main() { //Função Principal
 
     return 0;
 }
-int Soma() {
+int Soma() { // Função Soma
     system("clear");
     printf("\n=======\n");
     printf(" SOMAR\n");
     printf("=======\n");
 
-    printf("[1] - Dois números\n");
-    printf("[2] - Três números\n");
-    printf("[3] - Quatro números ou mais\n");
+    printf("Digite um número: ");
+    scanf("%f", &Aux);
 
-    printf("\n========\n");
+    do {
+        printf("Digite outro número: ");
+        scanf("%f", &Sec);
+
+        Aux = Aux + Sec;
+
+        printf("\nSomar mais algum? [1/0]: ");
+        scanf("%d", &Op);
+
+
+    } while(Op == 1);
+
+    system("clear");
+    printf("\n=======================\n");
+    printf(" Resultado Final: %.2f\n", Aux);
+    printf("=======================\n");
+
+    printf("[1] - Resetar\n");
+    printf("[2] - Voltar\n");
+
+    printf("\n=========\n");
     printf("Opção: ");
     scanf("%d", &Op);
+
+    switch(Op) {
+        case 1:
+            Soma();
+
+            break;
+
+        case 2:
+            main();
+
+            break;
+
+        default:
+            system("clear");
+            printf("Valor inválido, tente novamente...\n");
+            sleep(1);
+            system("clear");
+            main();
+
+            break;
+            
+    }
+
 
     return 0;
 }
