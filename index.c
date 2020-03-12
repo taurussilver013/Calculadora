@@ -5,6 +5,7 @@ float Aux, Sec;
 //Variáveis Globais
 
 int Soma();
+int Sub();
 //Chamada de funções externas
 
 int main() { //Função Principal
@@ -30,8 +31,7 @@ int main() { //Função Principal
             break;
 
         case 2:
-            system("clear");
-            printf("Função Subtrair é ativada...\n");
+            Sub();
 
             break;
 
@@ -116,4 +116,63 @@ int Soma() { // Função Soma
 
 
     return 0;
+} //Fim da função Soma
+int Sub() {
+    system("clear");
+    printf("\n========\n");
+    printf(" SUBTRAIR\n");
+    printf("========\n");
+
+    printf("Digite um número: ");
+    scanf("%f", &Aux);
+
+    do {
+        printf("Digite outro número: ");
+        scanf("%f", &Sec);
+
+        Aux = Aux - Sec;
+
+        printf("\nSubtrair mais algum? [1/0]: ");
+        scanf("%d", &Op);
+
+
+    } while(Op == 1);
+
+    system("clear");
+    printf("\n=======================\n");
+    printf(" Resultado Final: %.2f\n", Aux);
+    printf("=======================\n");
+
+    printf("[1] - Resetar\n");
+    printf("[2] - Voltar\n");
+
+    printf("\n=========\n");
+    printf("Opção: ");
+    scanf("%d", &Op);
+
+    switch(Op) {
+        case 1:
+            Sub();
+
+            break;
+
+        case 2:
+            main();
+
+            break;
+
+        default:
+            system("clear");
+            printf("Valor inválido, tente novamente...\n");
+            sleep(1);
+            system("clear");
+            main();
+
+            break;
+            
+    }
+
+
+    return 0;
+
 }
