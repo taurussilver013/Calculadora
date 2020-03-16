@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int Op;
+char Dec = 'n';
 float Aux, Sec;
 //Variáveis Globais
 
@@ -10,7 +11,7 @@ int Sub();
 
 int main() { //Função Principal
     system("clear"); //Limpa o terminal
-    printf("\n=====================\n");
+    printf("=====================\n");
     printf(" CALCULADORA SIMPLES\n");
     printf("=====================\n");
 
@@ -61,7 +62,7 @@ int main() { //Função Principal
 }
 int Soma() { // Função Soma
     system("clear");
-    printf("\n=======\n");
+    printf("=======\n");
     printf(" SOMAR\n");
     printf("=======\n");
 
@@ -74,14 +75,15 @@ int Soma() { // Função Soma
 
         Aux = Aux + Sec;
 
-        printf("\nSomar mais algum? [1/0]: ");
-        scanf("%d", &Op);
+        printf("\n----------------------------\n");
+        printf("Somar mais algum? [s/n]: ");
+        scanf("%s", &Dec);
 
 
-    } while(Op == 1);
+    } while(Dec == 's');
 
     system("clear");
-    printf("\n=======================\n");
+    printf("=======================\n");
     printf(" Resultado Final: %.2f\n", Aux);
     printf("=======================\n");
 
@@ -119,9 +121,9 @@ int Soma() { // Função Soma
 } //Fim da função Soma
 int Sub() {
     system("clear");
-    printf("\n========\n");
+    printf("==========\n");
     printf(" SUBTRAIR\n");
-    printf("========\n");
+    printf("==========\n");
 
     printf("Digite um número: ");
     scanf("%f", &Aux);
@@ -132,14 +134,15 @@ int Sub() {
 
         Aux = Aux - Sec;
 
-        printf("\nSubtrair mais algum? [1/0]: ");
-        scanf("%d", &Op);
+        printf("\n----------------------------\n");
+        printf("Subtrair mais algum? [s/n]: ");
+        scanf("%s", &Dec);
 
 
-    } while(Op == 1);
+    } while(Dec == 's');
 
     system("clear");
-    printf("\n=======================\n");
+    printf("=======================\n");
     printf(" Resultado Final: %.2f\n", Aux);
     printf("=======================\n");
 
