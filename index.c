@@ -7,6 +7,7 @@ float Aux, Sec;
 
 int Soma();
 int Sub();
+int Div();
 //Chamada de funções externas
 
 int main() { //Função Principal
@@ -18,7 +19,7 @@ int main() { //Função Principal
     printf("[1] - Somar(+)\n");
     printf("[2] - Subtrair(-)\n");
     printf("[3] - Dividir(/)\n");
-    printf("[4] - Multiplicar(*)\n");
+    printf("[4] - Multiplicar(*)\n\n");
     printf("[5] - Sair\n");
 
     printf("\n=========\n");
@@ -37,8 +38,7 @@ int main() { //Função Principal
             break;
 
         case 3:
-            system("clear");
-            printf("Função Dividir é ativada...\n");
+            Div();
 
             break;
 
@@ -60,7 +60,7 @@ int main() { //Função Principal
 
     return 0;
 }
-int Soma() { // Função Soma
+int Soma() { // Função Soma()
     system("clear");
     printf("=======\n");
     printf(" SOMAR\n");
@@ -118,8 +118,9 @@ int Soma() { // Função Soma
 
 
     return 0;
-} //Fim da função Soma
-int Sub() {
+} // Fim da função Soma()
+
+int Sub() {// Função Sub()
     system("clear");
     printf("==========\n");
     printf(" SUBTRAIR\n");
@@ -178,4 +179,63 @@ int Sub() {
 
     return 0;
 
-}
+} // Fim da função Sub()
+
+int Div() { // Função Div()
+    system("clear");
+    printf("=========\n");
+    printf(" DIVIDIR\n");
+    printf("=========\n");
+
+    printf("Digite um número: ");
+    scanf("%f", &Aux);
+
+    do {
+        printf("Digite outro número: ");
+        scanf("%f", &Sec);
+
+        Aux = Aux / Sec;
+
+        printf("\n----------------------------\n");
+        printf("Dividir mais algum? [s/n]: ");
+        scanf("%s", &Dec);
+
+
+    } while(Dec == 's');
+
+    system("clear");
+    printf("=======================\n");
+    printf(" Resultado Final: %.2f\n", Aux);
+    printf("=======================\n");
+
+    printf("[1] - Resetar\n");
+    printf("[2] - Voltar\n");
+
+    printf("\n=========\n");
+    printf("Opção: ");
+    scanf("%d", &Op);
+
+    switch(Op) {
+        case 1:
+            Div();
+
+            break;
+
+        case 2:
+            main();
+
+            break;
+
+        default:
+            system("clear");
+            printf("Valor inválido, tente novamente...\n");
+            sleep(1);
+            system("clear");
+            main();
+
+            break;
+            
+    }
+
+    return 0;
+} // Fim da função Div()
